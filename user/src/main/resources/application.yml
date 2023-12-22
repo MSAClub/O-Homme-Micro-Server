@@ -1,5 +1,5 @@
 server:
-  port: 8013
+  port: 0
   address: 0.0.0.0
 
 spring:
@@ -13,3 +13,6 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://3.143.74.33:8761/eureka
+
+greeting:
+  message: Welcome to Simple E-commerce.

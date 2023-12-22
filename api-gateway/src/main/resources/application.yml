@@ -7,10 +7,21 @@ spring:
     gateway:
       routes:
         - id : product
-          uri : lb://
+          uri : lb://product
           predicates:
             - Path=/product/**
-
+        - id : review
+          uri : lb://review
+          predicates:
+            - Path=/review/**
+        - id : order
+          uri : lb://order
+          predicates:
+            - Path=/order/**
+        - id : user
+          uri : lb://user
+          predicates:
+            - Path=/user/**
 eureka:
   client:
     register-with-eureka: true

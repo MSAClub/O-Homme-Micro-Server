@@ -1,10 +1,10 @@
 server:
-    port: 8013
+    port: 8012
     address: 0.0.0.0
 
 spring:
     application:
-        name: product   
+        name: order
 eureka:
     instance:
         instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

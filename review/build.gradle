@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.msaclub'
-version = '0.0.1-SNAPSHOT'
+version = 'review'
 
 java {
 	sourceCompatibility = '17'

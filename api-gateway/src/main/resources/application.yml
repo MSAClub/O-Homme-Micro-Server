@@ -1,0 +1,36 @@
+server:
+  port: 80
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id : product
+          uri : lb://product
+          predicates:
+            - Path=/product/**
+        - id : review
+          uri : lb://review
+          predicates:
+            - Path=/review/**
+        - id : order
+          uri : lb://order
+          predicates:
+            - Path=/order/**
+        - id : user
+          uri : lb://user
+          predicates:
+            - Path=/user/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://3.143.74.33:8761/eureka
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.ipc.netty: DEBUG

@@ -1,4 +1,4 @@
-package com.msaclub.review;
+package com.msaclub.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,12 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class ReviewApplication {
+public class UserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReviewApplication.class, args);
-		System.out.println("bye");
-
+		SpringApplication.run(UserApplication.class, args);
 	}
 
 }

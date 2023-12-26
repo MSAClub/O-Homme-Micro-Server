@@ -12,6 +12,6 @@ public class TestController {
 
     @GetMapping("/config")
     public String getConfig() {
-        return "myConfigValue";
+        return myConfigValue;
     }
 }

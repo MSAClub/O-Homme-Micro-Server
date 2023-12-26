@@ -10,6 +10,8 @@ spring:
           uri : lb://product
           predicates:
             - Path=/product/**
+          filters:
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
         - id : review
           uri : lb://review
           predicates:

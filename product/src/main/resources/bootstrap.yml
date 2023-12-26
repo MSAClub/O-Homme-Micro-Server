@@ -3,7 +3,7 @@ spring:
     config:
       discovery:
         enabled: true
-        serviceId: config
+        service-id: config
       name: product
       profile: default
 

@@ -1,17 +1,22 @@
 package com.msaclub.product.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.msaclub.product.ConfigUtil;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Slf4j
+@RequiredArgsConstructor
 public class TestController {
 
-    @Value("${spring.datasource.url}")
-    private String myConfigValue;
-
+    private final ConfigUtil configUtil;
     @GetMapping("/config")
     public String getConfig() {
-        return myConfigValue;
+        log.info("spring.datasource.url : {}", configUtil.getProperty("spring.datasource.url"));
+        return configUtil.getProperty("spring.datasource.url");
     }
 }

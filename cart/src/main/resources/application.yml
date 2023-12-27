@@ -11,5 +11,5 @@ spring:
 springdoc:
   swagger-ui:
     path: /cart-swagger
-    operations-sorter: metod
+    operations-sorter: method
 

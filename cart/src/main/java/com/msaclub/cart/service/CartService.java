@@ -9,4 +9,5 @@ public interface CartService {
     ObjectId createCartItem(CartItem cartItem);
     List<CartItem> findByCartItemList(String userId);
     boolean updateCartItemCount(String cartItemId, Integer newQuantity);
+    boolean deleteCartItem(String cartItemId);
 }

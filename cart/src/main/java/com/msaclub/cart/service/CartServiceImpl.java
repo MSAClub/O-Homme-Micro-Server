@@ -38,7 +38,7 @@ public class CartServiceImpl implements CartService{
      */
     @Override
     public List<CartItem> findByCartItemList(String userId) {
-        return cartRepository.findAllByUserId(userId);
+        return cartRepository.findByUserIdAndDeletedIsFalse(userId);
     }
 
     /**
@@ -54,8 +54,21 @@ public class CartServiceImpl implements CartService{
             cartItem.updateQuantity(newQuantity);
             cartRepository.save(cartItem);
         });
-        return false;
+        return true;
     }
 
+    /**
+     * 내 장바구니 물품 삭제
+     * @param cartItemId
+     */
+    @Override
+    public boolean deleteCartItem(String cartItemId) {
+        Optional<CartItem> optionalCartItem = cartRepository.findById(cartItemId);
+        optionalCartItem.ifPresent(cartItem -> {
+            cartItem.setDeleted(true); // 삭제 여부 플래그를 true
+            cartRepository.save(cartItem);
+        });
+        return true;
+    }
 
 }

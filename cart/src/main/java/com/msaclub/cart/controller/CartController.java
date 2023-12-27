@@ -100,4 +100,15 @@ public class CartController {
         log.info("mongo DB uri : {}", env.getProperty("spring.data.mongodb.uri"));
         return "";
     }
+
+    /**
+     * 내 장바구니 내 물품 수량 변경
+     * @param cartItemId
+     * @return
+     */
+    @DeleteMapping("/cart/{cartItemId}")
+    public String deleteCartItem(@PathVariable String cartItemId){
+        cartService.deleteCartItem(cartItemId);
+        return "ok";
+    }
 }

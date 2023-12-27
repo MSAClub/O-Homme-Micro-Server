@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,10 +27,14 @@ public class CartController {
 
     private final ModelMapper modelMapper;
 
+    // test 용도 나중에 지울거임.
+    private final Environment env;
+
     @Autowired
-    public CartController(CartService cartService, ModelMapper modelMapper){
+    public CartController(CartService cartService, ModelMapper modelMapper, Environment env){
         this.cartService = cartService;
         this.modelMapper = modelMapper;
+        this.env = env;
     }
 
     /**
@@ -64,5 +69,12 @@ public class CartController {
             log.info("cartItem : {}", item);
         }
         return String.valueOf(cartItemList);
+    }
+
+    @GetMapping("/health")
+    public String health(){
+        log.info("spring app name : {}", env.getProperty("spring.application.name"));
+        log.info("mongo DB uri : {}", env.getProperty("spring.data.mongodb.uri"));
+        return "";
     }
 }

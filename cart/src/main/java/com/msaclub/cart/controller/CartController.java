@@ -82,6 +82,18 @@ public class CartController {
         return String.valueOf(cartItemList);
     }
 
+    /**
+     * 내 장바구니 내 물품 수량 변경
+     * @param cartItemId
+     * @return
+     */
+    @PatchMapping("/cart/{cartItemId}")
+    public String updateCartItemCount(@PathVariable String cartItemId, @RequestBody Integer newQuantity){
+        cartService.updateCartItemCount(cartItemId, newQuantity);
+        return "ok";
+    }
+
+
     @GetMapping("/health")
     public String health(){
         log.info("spring app name : {}", env.getProperty("spring.application.name"));

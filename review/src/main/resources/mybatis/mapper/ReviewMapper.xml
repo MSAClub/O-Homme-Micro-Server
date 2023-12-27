@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msaclub.review.model.mapper.ReviewMapper">
+
+    <select id="getNumberOfPurchaseList" resultType="int">
+        SELECT COUNT(*) FROM purchase WHERE user_id = #{userId}
+    </select>
+
+    <select id="getPurchaseListByDate" resultType="String">
+        SELECT purchase_date FROM purchase WHERE user_id = #{userId} AND purchase_date BETWEEN #{start} AND #{end}
+    </select>
+
+    <select id="getPurchaseList" resultType="String">
+        SELECT product_name FROM purchase WHERE user_id = #{userId}
+    </select>
+
+    <select id="isBuyer" resultType="boolean">
+        SELECT COUNT(*) > 0 FROM purchase WHERE user_id = #{userId} AND product_id = #{productId}
+    </select>
+
+    <update id="review" parameterType="map">
+        UPDATE review SET content = #{content} WHERE review_id = #{reviewId}
+    </update>
+
+    <delete id="deleteReview">
+        DELETE FROM review WHERE review_id = #{reviewId}
+    </delete>
+
+    <select id="getReviewByReviewId" resultType="com.example.ReviewDto">
+        SELECT * FROM review WHERE review_id = #{reviewId}
+    </select>
+
+    <select id="getReviewCount" resultType="int">
+        SELECT COUNT(*) FROM review WHERE user_id = #{userId}
+    </select>
+
+    <select id="getReviewByUserId" resultType="com.example.ReviewDto">
+        SELECT * FROM review WHERE user_id = #{userId}
+    </select>
+
+</mapper>

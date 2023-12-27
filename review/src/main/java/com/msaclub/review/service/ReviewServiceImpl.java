@@ -14,15 +14,12 @@ public class ReviewServiceImpl implements ReviewService {
     @Autowired
     ReviewMapper reviewMapper;
 
-    public ReviewServiceImpl(ReviewMapper reviewMapper) {
-        this.reviewMapper = reviewMapper;
-    }
 
     @Override
     public int getNumberOfPurchaseList(String userId) {
-        return 0;
+        return reviewMapper.getNumberOfPurchaseList(userId);
     }
-
+  /*
     @Override
     public List<String> getPurchaseListByDate(LocalDateTime start, LocalDateTime end) {
         return null;
@@ -77,4 +74,5 @@ public class ReviewServiceImpl implements ReviewService {
     public Double getReviewAvg(String productId) {
         return reviewMapper.getReviewAvg(productId);
     }
+     */
 }

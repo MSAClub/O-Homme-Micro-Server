@@ -11,9 +11,8 @@ import java.util.List;
 @Repository
 public interface ReviewMapper {
 
-
     int getNumberOfPurchaseList(String userId);
-
+ /*
     List<String> getPurchaseListByDate(LocalDateTime start, LocalDateTime end);
 
     List<String> getPurchaseList(String userId);
@@ -37,4 +36,6 @@ public interface ReviewMapper {
     List<ReviewDto> getReviewByRating(String productId, boolean isAscending);
 
     Double getReviewAvg(String productId);
+
+     */
 }

@@ -7,9 +7,10 @@ import java.util.List;
 
 public interface ReviewService {
 
+
     // 현재 구매자의 구매 목록 갯수 가져오기
     int getNumberOfPurchaseList(String userId);
-
+/*
     // 현재 구매자의 날짜별 구매 목록 가져오기
     List<String> getPurchaseListByDate(LocalDateTime start, LocalDateTime end);
 
@@ -42,4 +43,5 @@ public interface ReviewService {
 
     // 리뷰 평점 계산하기
     Double getReviewAvg(String productId);
+     */
 }

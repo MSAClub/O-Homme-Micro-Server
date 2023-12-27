@@ -2,7 +2,8 @@ server:
   port: 0
 
 spring:
-  name: cart
+  application:
+    name: cart
   cloud:
     bootstrap:
       enabled: true

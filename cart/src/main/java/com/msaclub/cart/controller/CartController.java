@@ -3,6 +3,12 @@ package com.msaclub.cart.controller;
 import com.msaclub.cart.dto.CartItemSaveDto;
 import com.msaclub.cart.entity.CartItem;
 import com.msaclub.cart.service.CartService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.modelmapper.ModelMapper;
@@ -21,6 +27,7 @@ import java.util.List;
  */
 @RestController
 @Slf4j
+@Tag(name = "Cart", description = "장바구니 API")
 public class CartController {
 
     private final CartService cartService;
@@ -37,14 +44,18 @@ public class CartController {
         this.env = env;
     }
 
-    /**
-     * 내 장바구니에 상품을 추가할 때
-     * @param userId
-     * @param cartItemSaveDto
-     * @return
-     */
+    @Operation(summary = "장바구니 물건 등록", description = "내 장바구니에 물건을 등록하기")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "장바구니에 물건 등록 성공", content = {
+                    @Content(mediaType = "application/text")
+            }),
+            @ApiResponse(responseCode = "400", description = "넘어온 데이터 값 이상", content = {
+                    @Content()
+            }),
+    })
     @PostMapping("/cart/{userId}")
-    public String createCartItem(@PathVariable String userId, @RequestBody CartItemSaveDto cartItemSaveDto){
+    public String createCartItem(@Parameter(description = "유저 아이디") @PathVariable String userId,
+                                 @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "test")@RequestBody CartItemSaveDto cartItemSaveDto){
 
         // convert DTO to Entity
         CartItem cartItem = modelMapper.map(cartItemSaveDto, CartItem.class);

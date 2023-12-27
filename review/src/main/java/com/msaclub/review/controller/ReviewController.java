@@ -19,4 +19,15 @@ public class ReviewController {
     public String test() {
         return "hello review";
     }
+
+    @GetMapping("/DBConnectionTest")
+    public String testConnection() {
+        try {
+            int number = reviewService.getNumberOfPurchaseList("ssafy");
+            return "조회 성공";
+        } catch(Exception e) {
+            System.out.println(e);
+            return "DB Connection Error : 로그 메시지 참고해주세요";
+        }
+    }
 }

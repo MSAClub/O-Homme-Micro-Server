@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan(basePackages = {"com.msaclub.review.config"})
 public class ReviewApplication {
 
 	public static void main(String[] args) {

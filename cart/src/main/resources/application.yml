@@ -1,0 +1,11 @@
+server:
+  port: 0
+
+spring:
+  name: cart
+  cloud:
+    bootstrap:
+      enabled: true
+
+
+

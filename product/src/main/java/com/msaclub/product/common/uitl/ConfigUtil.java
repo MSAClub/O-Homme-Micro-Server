@@ -42,8 +42,8 @@ public class ConfigUtil {
 
     public ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("SpringBoot Rest API Documentation")
-                .description("3rd UMC Server: BAEMIN Clone coding - ?조")
+                .title("상품ㅠㅠ")
+                .description("언제됨 ㅠㅠ")
                 .version("0.1")
                 .build();
     }

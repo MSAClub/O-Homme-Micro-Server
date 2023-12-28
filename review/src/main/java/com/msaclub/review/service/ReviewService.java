@@ -2,7 +2,7 @@ package com.msaclub.review.service;
 
 import com.msaclub.review.model.ReviewDto;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface ReviewService {
@@ -10,9 +10,10 @@ public interface ReviewService {
 
     // 현재 구매자의 구매 목록 갯수 가져오기
     int getNumberOfPurchaseList(String userId);
-/*
+
     // 현재 구매자의 날짜별 구매 목록 가져오기
-    List<String> getPurchaseListByDate(LocalDateTime start, LocalDateTime end);
+    List<String> getPurchaseListByDate(String userId, Timestamp start, Timestamp end);
+
 
     // 현재 구매자의 구매 리스트 가져오기
     List<String> getPurchaseList(String userId);
@@ -21,13 +22,13 @@ public interface ReviewService {
     boolean isBuyer(String userId, String productId);
 
     // 리뷰 수정
-    boolean review(String reviewId, String content);
+    boolean review(int reviewId, String content);
 
     // 리뷰 삭제
-    boolean deleteReview(String reviewId);
+    boolean deleteReview(int reviewId);
 
     // 리뷰 조회 (by reviewId)
-    ReviewDto getReviewByReviewId(String reviewId);
+    ReviewDto getReviewByReviewId(int reviewId);
 
     // 어떤 유저가 작성한 리뷰 갯수 반환하기
     int getReviewCount(String userId);
@@ -36,12 +37,15 @@ public interface ReviewService {
     List<ReviewDto> getReviewByUserId(String userId);
 
     // 리뷰 조회
-    List<ReviewDto> getReviewByUserId(String userId, int pageNo, int reviewPerPage);
+    List<ReviewDto> getReviewByUserIdWithParam(String userId, int pageNo, int reviewPerPage);
 
     // 리뷰 점수 순으로 조회하기
     List<ReviewDto> getReviewByRating(String productId, boolean isAsending);
 
     // 리뷰 평점 계산하기
-    Double getReviewAvg(String productId);
-     */
+    double getReviewAvg(String productId);
+
+
+
+
 }

@@ -5,7 +5,7 @@ import com.msaclub.review.model.mapper.ReviewMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -19,34 +19,37 @@ public class ReviewServiceImpl implements ReviewService {
     public int getNumberOfPurchaseList(String userId) {
         return reviewMapper.getNumberOfPurchaseList(userId);
     }
-  /*
+
+
     @Override
-    public List<String> getPurchaseListByDate(LocalDateTime start, LocalDateTime end) {
-        return null;
+    public List<String> getPurchaseListByDate(String userId, Timestamp start, Timestamp end) {
+
+        return reviewMapper.getPurchaseListByDate(userId, start, end);
     }
+
 
     @Override
     public List<String> getPurchaseList(String userId) {
-        return null;
+        return reviewMapper.getPurchaseList(userId);
     }
 
     @Override
     public boolean isBuyer(String userId, String productId) {
-        return false;
+        return reviewMapper.isBuyer(userId, productId);
     }
 
     @Override
-    public boolean review(String reviewId, String content) {
-        return false;
+    public boolean review(int reviewId, String content) {
+        return reviewMapper.review(reviewId, content);
     }
 
     @Override
-    public boolean deleteReview(String reviewId) {
-        return false;
+    public boolean deleteReview(int reviewId) {
+        return reviewMapper.deleteReview(reviewId);
     }
 
     @Override
-    public ReviewDto getReviewByReviewId(String reviewId) {
+    public ReviewDto getReviewByReviewId(int reviewId) {
         return reviewMapper.getReviewByReviewId(reviewId);
     }
 
@@ -61,8 +64,8 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<ReviewDto> getReviewByUserId(String userId, int pageNo, int reviewPerPage) {
-        return reviewMapper.getReviewByUserId(userId, pageNo, reviewPerPage);
+    public List<ReviewDto> getReviewByUserIdWithParam(String userId, int pageNo, int reviewPerPage) {
+        return reviewMapper.getReviewByUserIdWithParam(userId, pageNo, reviewPerPage);
     }
 
     @Override
@@ -71,8 +74,8 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public Double getReviewAvg(String productId) {
+    public double getReviewAvg(String productId) {
         return reviewMapper.getReviewAvg(productId);
     }
-     */
+
 }

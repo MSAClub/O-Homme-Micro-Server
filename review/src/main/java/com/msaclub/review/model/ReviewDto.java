@@ -17,4 +17,18 @@ public class ReviewDto {
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
     private boolean deleted;
+
+    @Override
+    public String toString() {
+        return "ReviewDto{" +
+                "reviewId='" + reviewId + '\'' +
+                ", userId='" + userId + '\'' +
+                ", productId='" + productId + '\'' +
+                ", rating=" + rating +
+                ", comment='" + comment + '\'' +
+                ", createdAt=" + createdAt +
+                ", modifiedAt=" + modifiedAt +
+                ", deleted=" + deleted +
+                "}\n";
+    }
 }

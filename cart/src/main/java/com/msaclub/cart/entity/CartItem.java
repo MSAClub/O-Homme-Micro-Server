@@ -22,8 +22,9 @@ public class CartItem {
 
     private String userId;
 
+    private boolean deleted = false;
 
-    public CartItem(String userId, CartItemSaveDto cartItemSaveDto) {
-
+    public void updateQuantity(Integer newQuantity) {
+        this.count = newQuantity;
     }
 }

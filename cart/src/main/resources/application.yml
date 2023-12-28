@@ -8,5 +8,8 @@ spring:
     bootstrap:
       enabled: true
 
-
+springdoc:
+  swagger-ui:
+    path: /cart-swagger
+    operations-sorter: method
 

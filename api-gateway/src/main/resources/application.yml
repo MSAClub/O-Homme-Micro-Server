@@ -62,10 +62,22 @@ logging:
     reactor.ipc.netty: DEBUG
 
 springdoc:
-  enable-native-support: true
   api-docs:
     enabled: true
   swagger-ui:
     enabled: true
-    path: /swagger-ui.html
+    path: /sw
     config-url: /v3/api-docs/swagger-config
+    urls:
+      - url: /v3/api-docs/product/
+        name: product
+      - url: /v3/api-docs/order/
+        name: order
+      - url: /v3/api-docs/cart/
+        name: cart
+      - url: /v3/api-docs/review/
+        name: review
+      - url: /v3/api-docs/user/
+        name: user
+      - url: /v3/api-docs/test/
+        name: test

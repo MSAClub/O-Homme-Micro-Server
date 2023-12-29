@@ -1,15 +1,22 @@
 server:
   port: 0
-  address: 0.0.0.0
-
+  forward-headers-strategy: framework
 spring:
   application:
     name: product
-eureka:
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://3.143.74.33:8761/eureka
+  cloud:
+    bootstrap:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      show_sql : true
+  datasource:
+    url: jdbc:mariadb://localhost:3308/test?characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: 1234
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+

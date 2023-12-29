@@ -10,22 +10,38 @@ spring:
           uri : lb://product
           predicates:
             - Path=/product/**
+          filters:
+            - RewritePath=/product/(?<segment>.*), /$\{segment}
         - id : review
           uri : lb://review
           predicates:
             - Path=/review/**
+          filters:
+            - RewritePath=/review/(?<segment>.*), /$\{segment}
         - id : order
           uri : lb://order
           predicates:
             - Path=/order/**
+          filters:
+            - RewritePath=/order/(?<segment>.*), /$\{segment}
         - id : user
           uri : lb://user
           predicates:
             - Path=/user/**
+          filters:
+            - RewritePath=/user/(?<segment>.*), /$\{segment}
+        - id: cart
+          uri: lb://cart
+          predicates:
+            - Path=/cart/**
+          filters:
+            - RewritePath=/cart/(?<segment>.*), /$\{segment}
         - id: test
           uri: lb://test
           predicates:
             - Path=/test/**
+          filters:
+            - RewritePath=/test/(?<segment>.*), /$\{segment}
 eureka:
   client:
     register-with-eureka: true

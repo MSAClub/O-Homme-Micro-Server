@@ -1,6 +1,6 @@
 package com.msaclub.product.controller;
 
-import com.msaclub.product.ConfigUtil;
+import com.msaclub.product.common.uitl.ConfigUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

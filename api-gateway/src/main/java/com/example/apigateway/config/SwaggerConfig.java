@@ -10,19 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-//@OpenAPIDefinition(info = @Info(title = "[Cart Service] API 명세서", version = "0.1", description = "Cart Information"))
+@OpenAPIDefinition(info = @Info(title = "[Cart Service] API 명세서", version = "0.1", description = "Cart Information"))
 public class SwaggerConfig {
-    @Bean
-    public CommandLineRunner openApiGroups(
-            RouteDefinitionLocator locator,
-            SwaggerUiConfigParameters swaggerUiParameters) {
-        CommandLineRunner commandLineRunner = args -> locator
-                .getRouteDefinitions().collectList().block()
-                .stream()
-                .map(RouteDefinition::getId)
-                .filter(id -> id.matches(".*-service"))
-                .map(id -> id.replace("-service", ""))
-                .forEach(swaggerUiParameters::addGroup);
-        return commandLineRunner;
-    }
+
 }

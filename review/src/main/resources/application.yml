@@ -5,6 +5,19 @@ server:
 spring:
   application:
     name: review
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/msa?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8
+    username: ssafy
+    password: ssafy
+
+
+mybatis:
+  type-aliases-package: com.msaclub.review.model.mapper
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
@@ -13,3 +26,4 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://3.143.74.33:8761/eureka
+

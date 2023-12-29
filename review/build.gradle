@@ -22,7 +22,7 @@ repositories {
 }
 
 ext {
-	set('springCloudVersion', "2022.0.0")
+	set('springCloudVersion', "2022.0.3")
 }
 
 dependencies {
@@ -32,6 +32,11 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	runtimeOnly("com.mysql:mysql-connector-j")
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+
+
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'	//spring boot 3.0 ver =>  mybatis 3 버전 써야됨
 }
 
 dependencyManagement {

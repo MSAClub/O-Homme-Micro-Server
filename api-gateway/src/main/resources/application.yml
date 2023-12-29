@@ -7,7 +7,7 @@ spring:
     gateway:
       routes:
         - id: openapi
-          uri: http://localhost:${server.port}
+          uri: http://3.143.74.33:${server.port}
           predicates:
             - Path=/v3/api-docs/**
           filters:
@@ -60,3 +60,12 @@ logging:
   level:
     org.springframework.cloud.gateway: DEBUG
     reactor.ipc.netty: DEBUG
+
+springdoc:
+  enable-native-support: true
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    config-url: /v3/api-docs/swagger-config

@@ -74,8 +74,9 @@ public class CartController {
      * @return
      */
     @GetMapping("/cart/{userId}")
-    public String findByCartItemList(@PathVariable String userId){
+    public String findByCartItemList(@PathVariable(name = "userId") String userId){
         List<CartItem> cartItemList = cartService.findByCartItemList(userId);
+        log.info("userId : {}", userId);
         for (CartItem item: cartItemList) {
             log.info("cartItem : {}", item);
         }
@@ -96,8 +97,12 @@ public class CartController {
 
     @GetMapping("/health")
     public String health(){
+        System.out.println("일반 sysout으로 찍었을때");
+        log.info("인포 단계 로그 메세지 출력");
+        log.debug("디버그 단계 로그 메세지 출력");
+        log.error("에러 단계 로그 메세지 출력");
         log.info("spring app name : {}", env.getProperty("spring.application.name"));
-        log.info("mongo DB uri : {}", env.getProperty("spring.data.mongodb.uri"));
+//        log.info("mongo DB uri : {}", env.getProperty("spring.data.mongodb.uri"));
         return "";
     }
 

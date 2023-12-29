@@ -7,7 +7,7 @@ spring:
     gateway:
       routes:
         - id: openapi
-          uri: http://localhost:${server.port}
+          uri: http://3.143.74.33:${server.port}
           predicates:
             - Path=/v3/api-docs/**
           filters:

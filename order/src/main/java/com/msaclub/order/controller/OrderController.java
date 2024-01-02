@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/order")
 public class OrderController {
-    Environment env;
-    OrderService orderService;
+    private final Environment env;
+    private final OrderService orderService;
 
     @Autowired
     public OrderController(Environment env, OrderService orderService) {

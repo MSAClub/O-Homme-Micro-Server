@@ -1,10 +1,21 @@
 server:
-    port: 8012
+    port: 0
     address: 0.0.0.0
 
 spring:
     application:
         name: order
+    jpa:
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.MySQLDialect
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/ohomme?serverTimezone=UTC
+        username: ssafy
+        password: ssafy
+
+
 eureka:
     instance:
         instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

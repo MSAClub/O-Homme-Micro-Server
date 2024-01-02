@@ -14,13 +14,3 @@ spring:
         url: jdbc:mysql://localhost:3306/ohomme?serverTimezone=UTC
         username: ssafy
         password: ssafy
-
-
-eureka:
-    instance:
-        instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-    client:
-        fetch-registry: true
-        register-with-eureka: true
-        service-url:
-            defaultZone: http://3.143.74.33:8761/eureka
